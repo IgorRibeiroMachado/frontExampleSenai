@@ -1,0 +1,55 @@
+@page "/register"
+
+<PageTitle>Register</PageTitle>
+
+<center><h1 class="display-4">Registro</h1></center>
+<center><p>
+    <MatTextField @bind-Value="@myStringValue" Label="Nome"></MatTextField>
+</p>
+<p>
+    <MatTextField @bind-Value="@myStringValue" Dense="true" Label="Sobrenome"></MatTextField>
+</p>
+<p>
+    <MatTextField @bind-Value="@myStringValue" Label="Email"></MatTextField>
+</p>
+
+<p>
+    <MatTextField @bind-Value="@myIntValue" Label="Telefone"></MatTextField>
+</p>
+
+<p>
+    <MatTextField @bind-Value="@myDateTimeNullValue" Label="Cpf"></MatTextField>
+</p>
+
+<label for="exampleInputEmail1">Data de Nascimento</label>
+<p>
+    <MatDatePicker @bind-Value="@Date1"></MatDatePicker>
+</p>
+
+
+<div>
+    <MatCheckbox @bind-Value="@checked1" Label="@(getLabel(checked1))"></MatCheckbox>
+</div>
+
+<MatButton Raised="true">Registrar</MatButton>
+</center>
+
+
+
+
+@code
+{
+    bool checked1 = true;
+    bool checked2 = false;
+    bool? checked3 = null;
+
+    string getLabel(bool val)
+    {
+        return !val ? "Aceito os termos do contrato da licensa" : "Aceito os termos do contrato da licensa";
+    }
+    string myStringValue;
+    int myIntValue;
+    DateTime? myDateTimeNullValue;
+    public DateTime? Date1 { get; set; } = DateTime.Now.AddDays(-10);
+}
+ 
